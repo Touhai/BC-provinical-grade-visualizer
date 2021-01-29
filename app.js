@@ -24,7 +24,6 @@ app.listen(port, () => {
 app.use('/api', apiRoutes);
 
 
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -37,4 +36,4 @@ if (!db)
   console.log("Error connecting db")
 else
   console.log("Db connected successfully")
-  
+
