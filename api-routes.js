@@ -5,8 +5,7 @@ let router = require('express').Router();
 
 router.get('/', function(req,res){
     res.json({
-        status: "Hello world",
-        message: "Sample message"
+        message:"welcome to the API landing page, refer to github for more info."
     })
 })
 
@@ -14,7 +13,7 @@ router.get('/', function(req,res){
 
 let gradeController = require('./gradeController')
 router.route('/grades').get(gradeController.index);
-router.route('/test').get(gradeController.test)
+router.route('/test/:school_name/:avg').get(gradeController.test)
 
 //exporting the routes
 

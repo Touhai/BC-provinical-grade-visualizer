@@ -6,8 +6,8 @@ let ProvinicalGrades = require('./dataModel');
 // returns all the data in the database
 // DANGEROUS DONT USE IT LOL
 exports.index = function (req, res) {
-    ProvinicalGrades.get(function(err, grades){
-        if(err){
+    ProvinicalGrades.get(function (err, grades) {
+        if (err) {
             res.json({
                 status: "error",
                 message: err,
@@ -19,11 +19,23 @@ exports.index = function (req, res) {
             data: grades,
         })
     })
-    
+
 }
 
-exports.test = function (req,res){
-    res.json({
-        message:"api testing, it works",
-    })
+
+
+exports.test = function (req, res) {
+    ProvinicalGrades.find({SCHOOL_NAME: req.params.school_name, AVERAGE_PERCENT: req.params.avg}, function (err, data) {
+
+        if (err) {
+            res.json({
+                message: err,
+            })
+        } else {
+            res.json({
+                result: data
+            });
+        }
+
+    });
 }
