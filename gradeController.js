@@ -23,10 +23,8 @@ exports.index = function (req, res) {
 }
 
 
-
-exports.test = function (req, res) {
-    ProvinicalGrades.find({SCHOOL_NAME: req.params.school_name, AVERAGE_PERCENT: req.params.avg}, function (err, data) {
-
+exports.getGrades = function (req, res) {
+    ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, AVERAGE_PERCENT: req.params.avg }, function (err, data) {
         if (err) {
             res.json({
                 message: err,

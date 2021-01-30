@@ -13,7 +13,8 @@ router.get('/', function(req,res){
 
 let gradeController = require('./gradeController')
 router.route('/grades').get(gradeController.index);
-router.route('/test/:school_name/:avg').get(gradeController.test)
+router.route('/grades/:school_name/:avg').get(gradeController.getGrades)
+// router.route()
 
 //exporting the routes
 
