@@ -39,7 +39,7 @@ exports.getGrades = function (req, res) {
     });
 }
 
-
+// get method that returns the raw data in JSON.
 exports.getGradesv2 = function (req, res) {
     ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject, SUB_POPULATION: req.params.gender  }, function (err, data) {
         if (err) {
