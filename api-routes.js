@@ -14,6 +14,8 @@ router.get('/', function(req,res){
 let gradeController = require('./gradeController')
 router.route('/grades').get(gradeController.index);
 router.route('/grades/:school_name/:avg').get(gradeController.getGrades)
+router.route('/grades/:school_name/:year/:subject/:gender').get(gradeController.getGradesv2)
+
 // router.route()
 
 //exporting the routes
