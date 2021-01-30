@@ -23,8 +23,25 @@ exports.index = function (req, res) {
 }
 
 
+
 exports.getGrades = function (req, res) {
     ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, AVERAGE_PERCENT: req.params.avg }, function (err, data) {
+        if (err) {
+            res.json({
+                message: err,
+            })
+        } else {
+            res.json({
+                result: data
+            });
+        }
+
+    });
+}
+
+
+exports.getGradesv2 = function (req, res) {
+    ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject, SUB_POPULATION: req.params.gender  }, function (err, data) {
         if (err) {
             res.json({
                 message: err,
