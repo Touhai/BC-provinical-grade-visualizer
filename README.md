@@ -2,7 +2,7 @@
 # BC-provinical-grade-visualizer
 
 
-## Initlization:
+## Initialization:
 
 Installing dependencies: npm install
 
