@@ -4,7 +4,7 @@
 
 ## Initlization:
 
-Installing dependencies -> npm install
+Installing dependencies: npm install
 
 Start server: nodemon app.js
 
