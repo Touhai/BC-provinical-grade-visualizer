@@ -147,3 +147,20 @@ exports.getSchoolSubjects = function (req, res){
 
     })
 }
+
+
+exports.getSchoolPopulation = function (req, res){
+    const query = {SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject};
+    ProvinicalGrades.find().distinct("SUB_POPULATION",query, function(err, data){
+        if (err) {
+            res.json({
+                message: err,
+            })
+        } else {
+            res.json({
+                data
+            });
+        }
+
+    })
+}
