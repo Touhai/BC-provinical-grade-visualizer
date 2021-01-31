@@ -9,14 +9,25 @@ router.get('/', function(req,res){
     })
 })
 
-//importing controllers
+//importing controllers 
 
 let gradeController = require('./gradeController')
-router.route('/grades').get(gradeController.index);
-router.route('/grades/:school_name/:avg').get(gradeController.getGrades)
-router.route('/grades/:school_name/:year/:subject/:gender').get(gradeController.getGradesv2)
 
-// router.route()
+router.route('/grades').get(gradeController.index);
+
+// Grade retrival API
+router.route('/grades/:school_name/:year/:subject').get(gradeController.getGradeAllGender)
+router.route('/grades/:school_name/:year/:subject/:gender').get(gradeController.getGradeOneGender)
+router.route('/grades/:school_name/:year').get(gradeController.getGradeAllSubjects)
+// router.route('/grades/:school_name/:year/:gender').get(gradeController.getGradeAllSubjectsOneGender)
+router.route('/grades/:school_name/').get(gradeController.getGradeAllSubjectsAllYear)
+
+
+/* internal use stuff */
+
+// School info retrival API
+router.route('/info/:district').get(gradeController.getSchoolName);
+router.route('/info/:school_name/:year').get(gradeController.getSchoolSubjects);
 
 //exporting the routes
 
