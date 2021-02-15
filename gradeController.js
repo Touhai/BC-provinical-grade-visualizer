@@ -164,3 +164,20 @@ exports.getSchoolPopulation = function (req, res){
 
     })
 }
+
+
+exports.getAllDistrictNames = function (req, res){
+    const query = {};
+    ProvinicalGrades.find().distinct("DISTRICT_NAME",query, function(err, data){
+        if (err) {
+            res.json({
+                message: err,
+            })
+        } else {
+            res.json({
+                data
+            });
+        }
+
+    })
+}
