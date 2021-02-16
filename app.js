@@ -5,12 +5,19 @@ let apiRoutes = require("./api-routes");
 let bodyParser = require("body-parser");
 //importing mongoose
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 
 const app = express();
 const port = 3000;
 
 const URI = "mongodb+srv://dbBryan:m9RG%25FT29%5Et%5E@cluster0.ussij.mongodb.net/main?retryWrites=true&w=majority";
+
+
+//enable CORS
+
+app.use(cors());
+
 
 
 app.get('/', (req, res) => {
