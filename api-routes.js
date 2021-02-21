@@ -27,6 +27,7 @@ router.route('/grades/:school_name/').get(gradeController.getGradeAllSubjectsAll
 
 // School info retrival API
 router.route('/info/').get(gradeController.getAllDistrictNames);
+router.route('/info/year').get(gradeController.getAllYear);
 router.route('/info/:district').get(gradeController.getSchoolName);
 router.route('/info/:school_name/:year').get(gradeController.getSchoolSubjects);
 router.route('/info/:school_name/:year/:subject').get(gradeController.getSchoolPopulation);

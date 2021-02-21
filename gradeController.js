@@ -181,3 +181,20 @@ exports.getAllDistrictNames = function (req, res){
 
     })
 }
+
+
+exports.getAllYear = function (req, res){
+    const query = {};
+    ProvinicalGrades.find().distinct("SCHOOL_YEAR",query, function(err, data){
+        if (err) {
+            res.json({
+                message: err,
+            })
+        } else {
+            res.json({
+                data
+            });
+        }
+
+    })
+}
