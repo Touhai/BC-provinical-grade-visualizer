@@ -6,12 +6,13 @@ let bodyParser = require("body-parser");
 //importing mongoose
 const mongoose = require("mongoose");
 const cors = require('cors');
+require('dotenv').config()
 
 
 const app = express();
 const port = 3000;
 
-const URI = "mongodb+srv://dbBryan:m9RG%25FT29%5Et%5E@cluster0.ussij.mongodb.net/main?retryWrites=true&w=majority";
+const URI = process.env.DB_URI;
 
 
 //enable CORS
