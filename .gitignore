@@ -1,3 +1,6 @@
 
-#Ignore the depencies.
+#Ignore depencies.
 node_modules/
+
+#Ignore env files
+.env
