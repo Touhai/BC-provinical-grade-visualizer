@@ -11,7 +11,7 @@ router.get('/', function(req,res){
 
 //importing controllers 
 
-let gradeController = require('./gradeController')
+let gradeController = require('../controllers/gradeController')
 
 router.route('/grades').get(gradeController.index);
 

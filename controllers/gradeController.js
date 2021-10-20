@@ -1,6 +1,6 @@
 // main controller 
 
-let ProvinicalGrades = require('./dataModel');
+let ProvinicalGrades = require('../models/dataModel');
 
 // base API entry point
 exports.index = function (req, res) {

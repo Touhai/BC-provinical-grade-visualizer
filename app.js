@@ -1,6 +1,6 @@
 const express = require('express');
 // importing routes 
-let apiRoutes = require("./api-routes");
+let apiRoutes = require("./routes/api-routes");
 //importing parser
 let bodyParser = require("body-parser");
 //importing mongoose
