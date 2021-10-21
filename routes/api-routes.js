@@ -3,9 +3,9 @@
 
 let router = require('express').Router();
 
-router.get('/', function(req,res){
+router.get('/', function (req, res) {
     res.json({
-        message:"welcome to the API landing page, refer to github for more info."
+        message: "welcome to the API landing page, refer to github for more info."
     })
 })
 

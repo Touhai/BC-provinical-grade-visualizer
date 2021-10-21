@@ -14,7 +14,7 @@ exports.index = function (req, res) {
 // get method that returns the grade info for one subject and one populuation.
 exports.getGradeOneGender = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";
-    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject, SUB_POPULATION: req.params.gender}
+    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject, SUB_POPULATION: req.params.gender }
 
     ProvinicalGrades.find(query, fields, function (err, data) {
         if (err) {
@@ -33,7 +33,7 @@ exports.getGradeOneGender = function (req, res) {
 // get method that returns the grade info for one subject and ALL population.
 exports.getGradeAllGender = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";
-    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject}
+    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject }
 
     ProvinicalGrades.find(query, fields, function (err, data) {
         if (err) {
@@ -53,7 +53,7 @@ exports.getGradeAllGender = function (req, res) {
 
 exports.getGradeAllSubjects = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";
-    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year};
+    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year };
 
     ProvinicalGrades.find(query, fields, function (err, data) {
         if (err) {
@@ -74,7 +74,7 @@ exports.getGradeAllSubjects = function (req, res) {
 exports.getGradeAllSubjectsOneGender = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";
 
-    ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, SUB_POPULATION: req.params.gender}, fields, function (err, data) {
+    ProvinicalGrades.find({ SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, SUB_POPULATION: req.params.gender }, fields, function (err, data) {
         if (err) {
             res.json({
                 message: err,
@@ -94,7 +94,7 @@ exports.getGradeAllSubjectsOneGender = function (req, res) {
 
 exports.getGradeAllSubjectsAllYear = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";
-    const query = { SCHOOL_NAME: req.params.school_name};
+    const query = { SCHOOL_NAME: req.params.school_name };
     ProvinicalGrades.find(query, fields, function (err, data) {
         if (err) {
             res.json({
@@ -112,10 +112,10 @@ exports.getGradeAllSubjectsAllYear = function (req, res) {
 
 // get method that returns unique school names given a district
 
-exports.getSchoolName = function (req, res){
-    const query = { DISTRICT_NAME: req.params.district};
+exports.getSchoolName = function (req, res) {
+    const query = { DISTRICT_NAME: req.params.district };
 
-    ProvinicalGrades.find().distinct("SCHOOL_NAME",query, function(err, data){
+    ProvinicalGrades.find().distinct("SCHOOL_NAME", query, function (err, data) {
         if (err) {
             res.json({
                 message: err,
@@ -131,9 +131,9 @@ exports.getSchoolName = function (req, res){
 
 // get method that returns the subjects within a school in a year.
 
-exports.getSchoolSubjects = function (req, res){
-    const query = {SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year};
-    ProvinicalGrades.find().distinct("EXAM_SUBJECT",query, function(err, data){
+exports.getSchoolSubjects = function (req, res) {
+    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year };
+    ProvinicalGrades.find().distinct("EXAM_SUBJECT", query, function (err, data) {
         if (err) {
             res.json({
                 message: err,
@@ -148,9 +148,9 @@ exports.getSchoolSubjects = function (req, res){
 }
 
 
-exports.getSchoolPopulation = function (req, res){
-    const query = {SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject};
-    ProvinicalGrades.find().distinct("SUB_POPULATION",query, function(err, data){
+exports.getSchoolPopulation = function (req, res) {
+    const query = { SCHOOL_NAME: req.params.school_name, SCHOOL_YEAR: req.params.year, EXAM_SUBJECT: req.params.subject };
+    ProvinicalGrades.find().distinct("SUB_POPULATION", query, function (err, data) {
         if (err) {
             res.json({
                 message: err,
@@ -165,9 +165,9 @@ exports.getSchoolPopulation = function (req, res){
 }
 
 
-exports.getAllDistrictNames = function (req, res){
+exports.getAllDistrictNames = function (req, res) {
     const query = {};
-    ProvinicalGrades.find().distinct("DISTRICT_NAME",query, function(err, data){
+    ProvinicalGrades.find().distinct("DISTRICT_NAME", query, function (err, data) {
         if (err) {
             res.json({
                 message: err,
@@ -182,9 +182,9 @@ exports.getAllDistrictNames = function (req, res){
 }
 
 
-exports.getAllYear = function (req, res){
+exports.getAllYear = function (req, res) {
     const query = {};
-    ProvinicalGrades.find().distinct("SCHOOL_YEAR",query, function(err, data){
+    ProvinicalGrades.find().distinct("SCHOOL_YEAR", query, function (err, data) {
         if (err) {
             res.json({
                 message: err,
