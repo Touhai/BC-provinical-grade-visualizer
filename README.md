@@ -11,6 +11,8 @@ Start server: nodemon app.js
 
 ## API Reference:
 
+http://ec2-54-188-112-78.us-west-2.compute.amazonaws.com:3000/api
+
 The following are all HTTP GET methods:
 
 Note: Encode to URI before running the get methods.
