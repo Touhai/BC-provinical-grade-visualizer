@@ -70,7 +70,6 @@ exports.getGradeAllSubjects = function (req, res) {
 }
 
 // get method that returns the grade info for all subjects and one population
-// Doesnt work lol
 
 exports.getGradeAllSubjectsOneGender = function (req, res) {
     let fields = "SCHOOL_YEAR SCHOOL_NAME EXAM_SUBJECT -_id AVERAGE_PERCENT SUB_POPULATION MARK_TYPE";

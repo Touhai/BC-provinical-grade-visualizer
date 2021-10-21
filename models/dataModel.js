@@ -1,4 +1,4 @@
-// Handles the model for mongoose.
+// Handles the model for mongoose
 
 const mongoose = require('mongoose');
 

@@ -1,28 +1,23 @@
 const express = require('express');
-// importing routes 
-let apiRoutes = require("./routes/api-routes");
-//importing parser
-let bodyParser = require("body-parser");
-//importing mongoose
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require('cors');
 require('dotenv').config()
 
+// importing routes
+const apiRoutes = require("./routes/api-routes");
 
+// starting App
 const app = express();
 const port = 3000;
-
 const URI = process.env.DB_URI;
 
 
 //enable CORS
-
 app.use(cors());
 
-
-
 app.get('/', (req, res) => {
-  res.send("Server is up uwu!");
+  res.send("Server is up!");
 })
 
 app.listen(port, () => {

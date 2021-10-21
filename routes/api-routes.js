@@ -1,5 +1,5 @@
 
-//Init express router
+//The API routes for express backend
 
 let router = require('express').Router();
 
@@ -9,13 +9,13 @@ router.get('/', function(req,res){
     })
 })
 
-//importing controllers 
+//Importing controllers 
 
 let gradeController = require('../controllers/gradeController')
 
 router.route('/grades').get(gradeController.index);
 
-// Grade retrival API
+//Grade retrival API
 router.route('/grades/:school_name/:year/:subject').get(gradeController.getGradeAllGender)
 router.route('/grades/:school_name/:year/:subject/:gender').get(gradeController.getGradeOneGender)
 router.route('/grades/:school_name/:year').get(gradeController.getGradeAllSubjects)
@@ -23,9 +23,9 @@ router.route('/grades/:school_name/:year').get(gradeController.getGradeAllSubjec
 router.route('/grades/:school_name/').get(gradeController.getGradeAllSubjectsAllYear)
 
 
-/* internal use stuff */
+/* internal use */
 
-// School info retrival API
+//School info retrival API
 router.route('/info/').get(gradeController.getAllDistrictNames);
 router.route('/info/year').get(gradeController.getAllYear);
 router.route('/info/:district').get(gradeController.getSchoolName);
